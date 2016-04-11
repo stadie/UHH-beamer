@@ -1,0 +1,126 @@
+
+% \LaTeX beamer theme for UUH based on ZBH style layout
+% from author: Sascha Steinbiss <steinbiss@zbh.uni-hamburg.de>
+%
+% Hartmut Stadie <hartmut.stadie@desy.de> 2014
+
+
+\ProvidesPackage{beamerthemeUHH}
+  [2014/08/19 v1.0 beamer `UHH` theme]
+  
+\RequirePackage{ifthen}
+\RequirePackage[scaled=.85]{helvet}
+\RequirePackage{etoolbox}
+  
+\def\backgroundfile{UHHbackgroundnologo}
+\def\backgroundfilelogo{UHHbackground}
+  
+\ProcessOptions
+
+\mode<presentation>
+%\useinnertheme[shadow=true]{rounded}
+\useinnertheme[shadow=true]{rounded}
+\useinnertheme{rectangles}
+\usefonttheme[onlysmall]{structurebold}
+%\usefonttheme{professionalfonts}
+\useoutertheme[footline=authortitle,subsection=false,compress]{miniframes}
+
+\usecolortheme{UHH}
+\setbeamerfont{author in head/foot}{size=\scriptsize,series=\bfseries}
+\setbeamerfont{title in head/foot}{size=\scriptsize,series=\bfseries}
+\setbeamerfont{section in head/foot}{size=\scriptsize}
+\setbeamerfont{institute}{size=\small}
+  
+\setbeamertemplate{navigation symbols}{}
+%frame
+\setbeamertemplate{frametitle}{
+  \ifbeamer@plainframe
+  \else 
+  \vskip-17pt % to shift up the frametitle
+  \begin{beamercolorbox}[wd=0.22\paperwidth]{}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[wd=0.78\paperwidth]{section in head/foot}
+    {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle} \insertframetitle}
+  \end{beamercolorbox}
+  \vskip17pt
+  \fi
+}
+
+% headline
+\setbeamertemplate{headline} {
+  \begin{beamercolorbox}{section in head/foot}
+    %\vskip-0pt
+    %Fügt die Standard-Navi ein (miniframes)
+    \ifnumequal{\c@framenumber}{1}{\vskip1.29cm}%{\hfill \pgfimage[height=1.29cm]{cms}}%\vskip12pt}
+    {%
+      \ifnumequal{\c@framenumber}{\inserttotalframenumber}{\vskip 12pt}
+      {
+      \insertnavigation{\paperwidth}
+      }
+    }
+    %\hskip0.1\paperwidth 
+    %\insertsectionnavigationhorizontal{0.9\paperwidth}{\hskip.1cm}{\hskip.1cm}
+  \end{beamercolorbox} 
+  %\begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+  %\end{beamercolorbox}
+  %\begin{beamercolorbox}{section in head/foot}
+  %  \vskip0pt \hspace*{3cm}\insertnavigation{7cm}\vskip0pt
+  %\end{beamercolorbox}%
+}
+% footer with name, date and page numbers
+\setbeamertemplate{footline}{
+  \ifbeamer@plainframe
+  \else
+  \vspace*{0.0cm}
+  \begin{columns}
+  \begin{column}{0.4\paperwidth}
+  \begin{beamercolorbox}[ht=4ex,leftskip=1.3cm]{title in head/foot}
+      {\usebeamerfont{title in head/foot}\usebeamercolor[fg]{title in head/foot} \insertshorttitle }
+     \newline \vspace*{-0.2cm}
+    {\usebeamerfont{title in head/foot}\usebeamercolor[fg]{title in head/foot}{\insertshortsubtitle }  }
+    \end{beamercolorbox}
+    \end{column}
+    \begin{column}{0.2\paperwidth}
+   \begin{beamercolorbox}[ht=4ex]{author in head/foot}
+        {\usebeamerfont{author in head/foot}\usebeamercolor[fg]{author in head/foot}\insertshortauthor  \newline \vspace*{-0.2cm}\insertshortinstitute }
+  \end{beamercolorbox}
+\end{column}
+\begin{column}{0.4\paperwidth}
+ \begin{beamercolorbox}[ht=4ex,rightskip=.7cm]{date in head/foot}
+    %\hrule
+   \hfill {\usebeamerfont{title in head/foot}\usebeamercolor[fg]{title in head/foot} \insertdate \newline \vspace*{-0.2cm}
+   \hfill \insertframenumber/\inserttotalframenumber}
+  \end{beamercolorbox}
+  \end{column}
+  \end{columns}
+  \vspace{0.3cm}
+  % \leavevmode\small%
+  % \hspace*{1.3cm}%
+  % \makebox[4cm][l]{\insertshorttitle}%
+  % \makebox[4cm][l]{\insertshortauthor}%
+  % \hfill 
+  % \makebox[2cm][l]{\insertframenumber/\inserttotalframenumber}%
+  % %\hfill\insertframenumber/\inserttotalframenumber\hspace{2mm}%
+  % \vspace{1mm}%
+  \fi
+}
+% use ZBH slide layout template as background image
+\setbeamertemplate{background} {
+  \ifbeamer@plainframe
+  \else 
+  \ifnumequal{\c@framenumber}{1}{%
+    % First frame
+    \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfilelogo}
+  }{%
+   \ifnumequal{\c@framenumber}{\inserttotalframenumber}{
+     % Last frame
+     \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfilelogo}
+  }{%
+    % Other frames
+    \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfile}
+    }%
+  }%
+\fi
+}
+
+\mode<all>
