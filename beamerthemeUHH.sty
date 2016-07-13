@@ -14,7 +14,7 @@
   
 \def\backgroundfile{UHHbackgroundnologo}
 \def\backgroundfilelogo{UHHbackground}
-  
+
 \ProcessOptions
 
 \mode<presentation>
@@ -44,6 +44,7 @@
   \end{beamercolorbox}
   \vskip17pt
   \fi
+  \vskip6pt
 }
 
 % headline
@@ -71,29 +72,32 @@
 \setbeamertemplate{footline}{
   \ifbeamer@plainframe
   \else
-  \vspace*{0.0cm}
+  \vspace*{0.4cm}
   \begin{columns}
-  \begin{column}{0.4\paperwidth}
-  \begin{beamercolorbox}[ht=4ex,leftskip=1.3cm]{title in head/foot}
-      {\usebeamerfont{title in head/foot}\usebeamercolor[fg]{title in head/foot} \insertshorttitle }
-     \newline \vspace*{-0.2cm}
-    {\usebeamerfont{title in head/foot}\usebeamercolor[fg]{title in head/foot}{\insertshortsubtitle }  }
+  \begin{column}{0.10\paperwidth}
+  \begin{beamercolorbox}[ht=1ex,leftskip=0.7cm]{title in head/foot}
+      {\usebeamerfont{title in head/foot}\usebeamercolor[fg]{title in head/foot} \insertdate}
     \end{beamercolorbox}
     \end{column}
-    \begin{column}{0.2\paperwidth}
-   \begin{beamercolorbox}[ht=4ex]{author in head/foot}
-        {\usebeamerfont{author in head/foot}\usebeamercolor[fg]{author in head/foot}\insertshortauthor  \newline \vspace*{-0.2cm}\insertshortinstitute }
+  \begin{column}{0.2\paperwidth}
+   \begin{beamercolorbox}[ht=1ex]{author in head/foot}
+        {\usebeamerfont{author in head/foot}\usebeamercolor[fg]{author in head/foot}\insertshortauthor}
   \end{beamercolorbox}
 \end{column}
-\begin{column}{0.4\paperwidth}
- \begin{beamercolorbox}[ht=4ex,rightskip=.7cm]{date in head/foot}
+ \begin{column}{0.5\paperwidth}
+   \begin{beamercolorbox}[ht=1ex]{author in head/foot}
+        {\usebeamerfont{author in head/foot}\usebeamercolor[fg]{author in head/foot}\insertshorttitle  }
+  \end{beamercolorbox}
+\end{column}
+
+\begin{column}{0.1\paperwidth}
+ \begin{beamercolorbox}[ht=1ex,rightskip=0.7cm]{date in head/foot}
     %\hrule
-   \hfill {\usebeamerfont{title in head/foot}\usebeamercolor[fg]{title in head/foot} \insertdate \newline \vspace*{-0.2cm}
-   \hfill \insertframenumber/\inserttotalframenumber}
+   \hfill {\usebeamerfont{title in head/foot}\usebeamercolor[fg]{title in head/foot} \insertframenumber/\inserttotalframenumber}
   \end{beamercolorbox}
   \end{column}
   \end{columns}
-  \vspace{0.3cm}
+  \vspace{0.2cm}
   % \leavevmode\small%
   % \hspace*{1.3cm}%
   % \makebox[4cm][l]{\insertshorttitle}%
@@ -106,7 +110,9 @@
 }
 % use ZBH slide layout template as background image
 \setbeamertemplate{background} {
-  \ifbeamer@plainframe
+  \ifbeamer@plainframe {
+     \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfilelogo}
+  }
   \else 
   \ifnumequal{\c@framenumber}{1}{%
     % First frame
@@ -114,7 +120,7 @@
   }{%
    \ifnumequal{\c@framenumber}{\inserttotalframenumber}{
      % Last frame
-     \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfilelogo}
+     \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfile}
   }{%
     % Other frames
     \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfile}
