@@ -74,7 +74,7 @@
   \else
   \vspace*{0.4cm}
   \begin{columns}
-  \begin{column}{0.10\paperwidth}
+  \begin{column}{0.15\paperwidth}
   \begin{beamercolorbox}[ht=1ex,leftskip=0.7cm]{title in head/foot}
       {\usebeamerfont{title in head/foot}\usebeamercolor[fg]{title in head/foot} \insertdate}
     \end{beamercolorbox}
@@ -114,17 +114,9 @@
      \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfilelogo}
   }
   \else 
-  \ifnumequal{\c@framenumber}{1}{%
-    % First frame
-    \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfilelogo}
-  }{%
-   \ifnumequal{\c@framenumber}{\inserttotalframenumber}{
-     % Last frame
-     \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfile}
-  }{%
+  {%
     % Other frames
     \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfile}
-    }%
   }%
 \fi
 }
