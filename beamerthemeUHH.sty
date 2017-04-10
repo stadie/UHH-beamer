@@ -12,7 +12,7 @@
 \RequirePackage[scaled=.85]{helvet}
 \RequirePackage{etoolbox}
   
-\def\backgroundfile{UHHbackgroundnologo}
+\def\backgroundfile{UHHmorespace}
 \def\backgroundfilelogo{UHHbackground}
 
 \ProcessOptions
@@ -36,15 +36,15 @@
 \setbeamertemplate{frametitle}{
   \ifbeamer@plainframe
   \else 
-  \vskip-17pt % to shift up the frametitle
+  \vskip-20pt % to shift up the frametitle
   \begin{beamercolorbox}[wd=0.22\paperwidth]{}
   \end{beamercolorbox}
   \begin{beamercolorbox}[wd=0.78\paperwidth]{section in head/foot}
     {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle} \insertframetitle}
   \end{beamercolorbox}
-  \vskip17pt
+  \vskip20pt
   \fi
-  \vskip6pt
+  \vskip0pt
 }
 
 % headline
