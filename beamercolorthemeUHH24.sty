@@ -1,0 +1,46 @@
+\ProvidesPackage{beamercolorthemeUHH}
+  [2014/08/19 v1.0 beamer 'UHH' colour theme]
+
+\RequirePackage{colortbl}
+
+\mode<presentation>
+
+\definecolor{UHHlightgrey}{RGB}{240,243,246}
+\definecolor{UHHgrey}{RGB}{157,168,173}
+\definecolor{UHHred}{RGB}{226,0,26}
+\definecolor{UHHblue}{RGB}{2,113,187}
+\definecolor{UHHblack}{RGB}{51,51,51}
+\definecolor{UHHlightblue}{RGB}{128,184,221}
+\definecolor{UHHlightred}{RGB}{240,127,140}
+\definecolor{UHHdarkgrey}{RGB}{59,81,91}
+
+
+
+\setbeamercolor{normal text}{fg=UHHblack}
+\setbeamercolor{alerted text}{fg=UHHred}
+\setbeamercolor{example text}{fg=UHHblue}
+%\setbeamercolor{structure}{fg=UHHlightgrey}
+\setbeamercolor{structure}{fg=UHHblue}
+\setbeamercolor{title}{fg=UHHblack}
+\setbeamercolor{author}{fg=UHHblack}
+\setbeamercolor{date}{fg=UHHblack}
+\setbeamercolor{framesubtitle}{fg=UHHdarkgrey}
+\setbeamercolor{headline}{fg=UHHblack}
+\setbeamercolor{footline}{fg=UHHblack}
+\setbeamercolor{frametitle}{fg=UHHblack}
+\setbeamercolor{title in head/foot}{fg=UHHblack}
+\setbeamercolor{author in head/foot}{fg=UHHblack}
+
+
+
+%from orchid color theme
+\setbeamercolor{block title}{use=structure,fg=white,bg=UHHblack}
+\setbeamercolor{block body}{parent=normal text,use=block title,fg=UHHblack,bg=UHHlightgrey}
+
+\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=UHHred}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=UHHlightred}
+
+\setbeamercolor{block title example}{use=example text,fg=white,bg=UHHblue}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=UHHlightblue}
+
+\mode<all>
